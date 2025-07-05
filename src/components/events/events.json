@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Event 1",
+    "date": "Jan 12, 2024",
+    "description": "Description for Event 1",
+    "tags": ["Tag1", "Tag2"],
+    "imageUrl": "https://placehold.co/390x250/001a36/ffffff?text=Event+1"
+  },
+  {
+    "id": 2,
+    "title": "Event 2",
+    "date": "Jan 15, 2024",
+    "description": "Description for Event 2",
+    "tags": ["Tag3", "Tag4"],
+    "imageUrl": "https://placehold.co/390x250/001a36/ffffff?text=Event+2"
+  },
+  {
+    "id": 3,
+    "title": "Event 3",
+    "date": "Jan 18, 2024",
+    "description": "Description for Event 3",
+    "tags": ["Tag1", "Tag4"],
+    "imageUrl": "https://placehold.co/390x250/001a36/ffffff?text=Event+3"
+  },
+  {
+    "id": 4,
+    "title": "Event 4",
+    "date": "Jan 21, 2024",
+    "description": "Description for Event 4",
+    "tags": ["Tag2", "Tag3"],
+    "imageUrl": "https://placehold.co/390x250/001a36/ffffff?text=Event+4"
+  },
+  {
+    "id": 5,
+    "title": "Event 5",
+    "date": "Jan 24, 2024",
+    "description": "Description for Event 5",
+    "tags": ["Tag1", "Tag3"],
+    "imageUrl": "https://placehold.co/390x250/001a36/ffffff?text=Event+5"
+  },
+  {
+    "id": 6,
+    "title": "Event 6",
+    "date": "Jan 27, 2024",
+    "description": "Description for Event 6",
+    "tags": ["Tag2", "Tag4"],
+    "imageUrl": "https://placehold.co/390x250/001a36/ffffff?text=Event+6"
+  },
+  {
+    "id": 7,
+    "title": "Event 7",
+    "date": "Jan 30, 2024",
+    "description": "Description for Event 7",
+    "tags": ["Tag1", "Tag2"],
+    "imageUrl": "https://placehold.co/390x250/001a36/ffffff?text=Event+7"
+  }
+]
