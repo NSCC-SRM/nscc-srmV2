@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import './Events.css';
 
 const eventData = [
@@ -62,22 +62,13 @@ const EventPage = ({ handleBackToLiveEvents }) => {
       >
         Back
       </button>
-      {/* Left Side: Title and Description */}
-      <div className="flex flex-col justify-center items-start w-1/3 pl-16">
-        <h1 className="text-5xl lg:text-7xl font-medium text-blue-400 tracking-wide mb-4">
-          Live Events. <span className="inline-block align-middle">&#8594;</span>
-        </h1>
-        <p className="text-gray-400 text-base max-w-xs">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-        </p>
-      </div>
-      {/* Right Side: Carousel */}
-      <div className="relative w-2/3 flex items-center ml-16">
+      {/* Carousel */}
+      <div className="relative w-full flex items-center justify-center px-8">
         {/* Navigation Arrows */}
         {startIdx === 0 && (
           // Show right arrow on the left when on the first set
           <button
-            className="absolute -left-10 z-10 bg-gray-800 bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 text-blue-400 hover:text-white transition disabled:opacity-40 disabled:cursor-not-allowed"
+            className="absolute left-4 z-10 bg-gray-800 bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 text-blue-400 hover:text-white transition disabled:opacity-40 disabled:cursor-not-allowed"
             onClick={handleRight}
             aria-label="Next"
             disabled={startIdx >= eventData.length - VISIBLE_CARDS}
@@ -88,7 +79,7 @@ const EventPage = ({ handleBackToLiveEvents }) => {
         {startIdx === eventData.length - VISIBLE_CARDS && (
           // Show left arrow on the left when on the last set
           <button
-            className="absolute -left-10 z-10 bg-gray-800 bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 text-blue-400 hover:text-white transition disabled:opacity-40 disabled:cursor-not-allowed"
+            className="absolute left-4 z-10 bg-gray-800 bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 text-blue-400 hover:text-white transition disabled:opacity-40 disabled:cursor-not-allowed"
             onClick={handleLeft}
             aria-label="Previous"
             disabled={startIdx === 0}
@@ -98,7 +89,7 @@ const EventPage = ({ handleBackToLiveEvents }) => {
         )}
         {/* Cards */}
         <div
-          className={`flex gap-8 py-8 px-18 w-full justify-center items-center select-none ${swipeDirection === 'left' ? 'swipe-left' : ''} ${swipeDirection === 'right' ? 'swipe-right' : ''}`}
+          className={`flex gap-8 py-8 px-12 w-full justify-center items-center select-none ${swipeDirection === 'left' ? 'swipe-left' : ''} ${swipeDirection === 'right' ? 'swipe-right' : ''}`}
           style={{ pointerEvents: "none" }}
         >
           {visibleEvents.map((event) => (
