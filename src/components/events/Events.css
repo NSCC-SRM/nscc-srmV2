@@ -9,12 +9,15 @@
 
 /* Live Events Section */
 .live-events-container {
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: linear-gradient(to bottom, #000c18, #001a36);
+  padding: 0 2rem; /* Add some padding for content */
 }
 
 .live-events-content {
@@ -37,24 +40,21 @@
   margin-right: auto;
 }
 
-/* Event Page Sticky Scroll Section */
-.sticky {
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 0 4rem;
-  box-sizing: border-box;
-}
-
+/* Sticky Carousel Container */
 .event-carousel {
   display: flex;
-  gap: 2rem; /* 32px */
-  will-change: transform; /* Performance optimization */
+  height: 100vh;
+  width: max-content;
+  align-items: center; /* Vertically center cards */
+  gap: 2rem; /* Add space between cards */
 }
 
-/* Event Card Styling */
+/* Spacer for the end of the carousel */
+.event-card-spacer {
+  width: calc(100vw - 400px); /* Ensures last card can scroll to the left edge */
+  flex-shrink: 0;
+}
+
 .event-card {
   flex-shrink: 0;
   width: 390px;
