@@ -2,78 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.flip-card {
-    background-color: transparent;
-    width: 25%;
-    height: 25vh;
-    perspective: 1000px;
-    padding:0.5rem;
-  }
-  
-  .title {
-    font-size: 1.5em;
-    font-weight: 900;
-    text-align: center;
-    margin: 0;
-  }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 1rem;
-  }
-  
-  .flip-card-front {
-    color: white;
-  }
-  
-  .flip-card-back {
-    color: white;
-    transform: rotateY(180deg);
-  }
-
-  .Sponser{
-    height: 25vh;
-    color:rgb(45, 65, 112);
-  }
-
-  .Sponser-Title{
-    font-size: 8rem;
-  }
-
-  .Sponsi-Text {
-    padding-top: 3%;
-  }
-
-  .sponsi-container {
-    width: 100%;
-    background-image: url('./assets/Background.png');
-    background-size: cover;
-    background-position: center;
-    position: relative;
+/* Flip Card Styling */
+.flip-card-wrapper {
+  perspective: 1000px;
+  width: 100%;
+  height: 190px;
 }
 
-@media (min-width:720px){
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 1rem;
+}
+
+.flip-card-wrapper:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Sponsorship Section Styling */
+.Sponser {
+  height: 25vh;
+  color: rgb(45, 65, 112);
+}
+
+.Sponser-Title {
+  font-size: 8rem;
+}
+
+.Sponsi-Text {
+  padding-top: 3%;
+}
+
+.sponsi-container {
+  width: 100%;
+  background-image: url('./assets/Background.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+@media (min-width: 720px) {
   .sponsi-container::before {
     content: '';
     position: absolute;
@@ -82,31 +72,28 @@
     width: 100%;
     height: 100%;
     background-image:
-        linear-gradient(to right, transparent, transparent 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 25.05%, transparent 25.05%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 50.05%, transparent 50.05%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 75.05%, transparent 75.05%),
-        linear-gradient(to bottom, transparent, transparent 24.975%, rgba(255, 255, 255, 0.1) 24.975%, rgba(255, 255, 255, 0.1) 25.025%, transparent 25.025%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 50.05%, transparent 50.05%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 75.05%, transparent 75.05%);
+      linear-gradient(to right, transparent, transparent 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 25.05%, transparent 25.05%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 50.05%, transparent 50.05%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 75.05%, transparent 75.05%),
+      linear-gradient(to bottom, transparent, transparent 24.975%, rgba(255, 255, 255, 0.1) 24.975%, rgba(255, 255, 255, 0.1) 25.025%, transparent 25.025%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 50.05%, transparent 50.05%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 75.05%, transparent 75.05%);
   }
 }
 
-
-
-@media (max-width:720px) {
-  .sponsi-container{
+@media (max-width: 720px) {
+  .sponsi-container {
     background-image: url('./assets/Background_mobile.png');
   }
-  .Sponser-Title{
+
+  .Sponser-Title {
     font-size: 2.5rem;
-    color:rgb(142, 175, 209);
+    color: rgb(142, 175, 209);
   }
-  .Sponser{
+
+  .Sponser {
     height: 20vh;
   }
 
-  .flip-card {
+  .flip-card-wrapper {
     width: 93%;
     height: 15vh;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.5rem;
   }
 }
-
-
-  

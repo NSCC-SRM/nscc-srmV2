@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -6,13 +5,28 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        'helvetica-neue': ['"Helvetica Neue"', 'Arial', 'sans-serif'],
-      },
-      backgroundImage: {
-        'sponsi': "url('./src/assets/Background.png')",
+      transformOrigin: {
+        center: 'center',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.perspective': {
+          perspective: '1000px',
+        },
+        '.transform-style': {
+          'transform-style': 'preserve-3d',
+        },
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+          '-webkit-backface-visibility': 'hidden',
+        },
+        '.rotate-y-180': {
+          transform: 'rotateY(180deg)',
+        },
+      })
+    },
+  ],
 }

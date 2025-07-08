@@ -1,0 +1,18 @@
+[
+  { "name": "Sponsor 1", "color": "teal", "logo": "https://via.placeholder.com/120x60?text=1", "description": "Description for Sponsor 1." },
+  { "name": "Sponsor 2", "color": "blue", "logo": "https://via.placeholder.com/120x60?text=2", "description": "Description for Sponsor 2." },
+  { "name": "Sponsor 3", "color": "gray", "logo": "https://via.placeholder.com/120x60?text=3", "description": "Description for Sponsor 3." },
+  { "name": "Sponsor 4", "color": "blue", "logo": "https://via.placeholder.com/120x60?text=4", "description": "Description for Sponsor 4." },
+  { "name": "Sponsor 5", "color": "teal", "logo": "https://via.placeholder.com/120x60?text=5", "description": "Description for Sponsor 5." },
+  { "name": "Sponsor 6", "color": "gray", "logo": "https://via.placeholder.com/120x60?text=6", "description": "Description for Sponsor 6." },
+  { "name": "Sponsor 7", "color": "blue", "logo": "https://via.placeholder.com/120x60?text=7", "description": "Description for Sponsor 7." },
+  { "name": "Sponsor 8", "color": "teal", "logo": "https://via.placeholder.com/120x60?text=8", "description": "Description for Sponsor 8." },
+  { "name": "Sponsor 9", "color": "gray", "logo": "https://via.placeholder.com/120x60?text=9", "description": "Description for Sponsor 9." },
+  { "name": "Sponsor 10", "color": "blue", "logo": "https://via.placeholder.com/120x60?text=10", "description": "Description for Sponsor 10." },
+  { "name": "Sponsor 11", "color": "teal", "logo": "https://via.placeholder.com/120x60?text=11", "description": "Description for Sponsor 11." },
+  { "name": "Sponsor 12", "color": "gray", "logo": "https://via.placeholder.com/120x60?text=12", "description": "Description for Sponsor 12." },
+  { "name": "Sponsor 13", "color": "blue", "logo": "https://via.placeholder.com/120x60?text=13", "description": "Description for Sponsor 13." },
+  { "name": "Sponsor 14", "color": "teal", "logo": "https://via.placeholder.com/120x60?text=14", "description": "Description for Sponsor 14." },
+  { "name": "Sponsor 15", "color": "gray", "logo": "https://via.placeholder.com/120x60?text=15", "description": "Description for Sponsor 15." },
+  { "name": "Sponsor 16", "color": "blue", "logo": "https://via.placeholder.com/120x60?text=16", "description": "Description for Sponsor 16." }
+]

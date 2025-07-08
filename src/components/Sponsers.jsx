@@ -1,59 +1,79 @@
-import React from 'react';
-import FlipCard from './utils/FlipCard'; 
+import React, { useEffect, useState } from "react";
 
-export default function Sponsers() {
-    return(
-        <div className=" sponsi-container">
-            <div className="Sponser  font-helvetica-neue flex flex-col lg:flex-row lg:justify-between">
-                <p className="Sponser-Title flex justify-center items-center pt-5 lg:py-10 lg:px-5">
-                    Our Sponsers.
-                </p>
-                <p className="Sponsi-Text text-sm text-left lg:mt-10 px-9 lg:px-5 text-gray-300 lg:w-1/4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitati 
-                </p>
-            </div>
-            <div className="hidden lg:block">
-                <div className="flex flex-row">
-                    <FlipCard name="Sponser #1" bgColor="rgb(49, 196, 191)" />
-                    <FlipCard name="Sponser #2" bgColor="rgb(205, 207, 209)" />
-                    <FlipCard name="Sponser #3" bgColor="rgb(94, 142, 214)" />
-                    <FlipCard name="Sponser #4" bgColor="rgb(94, 142, 214)" />
-                </div>
-                <div className="flex flex-row">
-                    <FlipCard name="Sponser #5" bgColor="rgb(94, 142, 214)" />
-                    <FlipCard name="Sponser #6" bgColor="rgb(49, 196, 191)" />
-                    <FlipCard name="Sponser #7" bgColor="rgb(206, 209, 214)" />
-                    <FlipCard name="Sponser #8" bgColor="rgb(49, 196, 191)" />
-                </div>
-                <div className="flex flex-row">
-                    <FlipCard name="Sponser #9" bgColor="rgb(203, 210, 214)" />
-                    <FlipCard name="Sponser #10" bgColor="rgb(49, 196, 191)" />
-                    <FlipCard name="Sponser #11" bgColor="rgb(94, 142, 214)" />
-                    <FlipCard name="Sponser #12" bgColor="rgb(214, 211, 222)" />
-                </div>
-            </div>
+const Sponsors = () => {
+  const [sponsors, setSponsors] = useState([]);
 
-            <div className="lg:hidden px-6">
-                <div className="grid grid-cols-2">
-                    <FlipCard name="Sponser #1" bgColor="rgb(49, 196, 191)" />
-                    <FlipCard name="Sponser #2" bgColor="rgb(205, 207, 209)" />
-                    <FlipCard name="Sponser #3" bgColor="rgb(94, 142, 214)" />
-                    <FlipCard name="Sponser #4" bgColor="rgb(94, 142, 214)" />
-                </div>
-                <div className="grid grid-cols-2">
-                    <FlipCard name="Sponser #5" bgColor="rgb(94, 142, 214)" />
-                    <FlipCard name="Sponser #6" bgColor="rgb(49, 196, 191)" />
-                    <FlipCard name="Sponser #7" bgColor="rgb(206, 209, 214)" />
-                    <FlipCard name="Sponser #8" bgColor="rgb(49, 196, 191)" />
-                </div>
-                <div className="grid grid-cols-2">
-                    <FlipCard name="Sponser #9" bgColor="rgb(203, 210, 214)" />
-                    <FlipCard name="Sponser #10" bgColor="rgb(49, 196, 191)" />
-                    <FlipCard name="Sponser #11" bgColor="rgb(94, 142, 214)" />
-                    <FlipCard name="Sponser #12" bgColor="rgb(214, 211, 222)" />
-                </div>
-            </div>
+  useEffect(() => {
+    fetch("/sponsors.json")
+      .then((res) => res.json())
+      .then((data) => setSponsors(data))
+      .catch((err) => console.error("Failed to load sponsor data:", err));
+  }, []);
 
-        </div>
-    )}
+  return (
+    <div className="max-w-[1368px] mx-auto px-5 py-10">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center text-center md:text-left gap-6 mb-10">
+        <h1 className="text-4xl md:text-6xl font-semibold bg-gradient-to-r from-[#3A3A57] via-[#373C5C] to-[#2A4675] text-transparent bg-clip-text leading-tight tracking-tight">
+          Our Sponsors.
+        </h1>
+        <p className="max-w-md text-sm text-gray-300 leading-relaxed">
+          Meet the amazing organizations that power our mission with their
+          incredible support and partnership.
+        </p>
+      </div>
+
+      {/* Sponsor Grid */}
+      <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+        {sponsors.map((s, index) => (
+          <div
+            key={index}
+            className="w-full sm:w-[calc(50%-8px)] lg:w-[calc(25%-12px)]"
+          >
+            <div className="flip-card-wrapper">
+              <div className="flip-inner">
+                {/* Front */}
+                <div
+                  className={`flip-front ${
+                    s.color === "teal"
+                      ? "bg-teal-400"
+                      : s.color === "blue"
+                      ? "bg-blue-400"
+                      : s.color === "gray"
+                      ? "bg-gray-300 text-black"
+                      : "bg-teal-400"
+                  }`}
+                >
+                  <img
+                    src={s.logo}
+                    alt={s.name}
+                    className="max-w-[80%] max-h-[80%] object-contain"
+                  />
+                </div>
+
+                {/* Back */}
+                <div
+                  className={`flip-back ${
+                    s.color === "teal"
+                      ? "bg-blue-400"
+                      : s.color === "blue"
+                      ? "bg-teal-400"
+                      : s.color === "gray"
+                      ? "bg-teal-400 text-white"
+                      : "bg-blue-400"
+                  }`}
+                >
+                  <p className="text-sm text-white text-center">
+                    {s.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Sponsors;
