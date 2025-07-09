@@ -8,6 +8,21 @@ export default {
       transformOrigin: {
         center: 'center',
       },
+      keyframes: {
+        popin: {
+          from: {
+            opacity: '0',
+            transform: 'translate(-50%, -50%) scale(0.8) rotate(-20deg)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translate(-50%, -50%) scale(1) rotate(-20deg)',
+          },
+        },
+      },
+      animation: {
+        popin: 'popin 0.3s cubic-bezier(.4, 2, .6, 1)',
+      },
     },
   },
   plugins: [
