@@ -4,7 +4,7 @@ import Domains from './components/Domains'
 import Events from './components/events/Events'
 import Sponsers from './components/Sponsers'
 import OurTeam from './components/OurTeam'
-import Gallery from './components/Gallery'
+import Gallery from './components/gallery/Gallery';
 import FollowUs from './components/FollowUs/FollowUs'
 import Footer from './components/Footer/Footer'
 import './App.css'

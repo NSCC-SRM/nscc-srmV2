@@ -1,0 +1,64 @@
+/* Main container for the gallery section */
+.gallery-container {
+  position: relative; /* Establishes a stacking context */
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Static background with title and grid */
+.gallery-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Sits behind the carousel */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b0f19;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Title styling */
+.gallery-title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 500;
+  color: #60a5fa; /* text-blue-400 */
+  letter-spacing: 0.025em;
+}
+
+/* Horizontally scrolling image carousel */
+.gallery-carousel {
+  position: relative;
+  z-index: 2; /* Sits on top of the background */
+  display: flex;
+  height: 100%;
+  width: max-content;
+  align-items: center;
+  padding: 0 15vw; /* Provides space on the sides */
+  gap: 10vw; /* Space between images */
+  /* Start the carousel off-screen to the right */
+  transform: translateX(100vw);
+}
+
+/* Wrapper for each image, dynamically sized */
+.gallery-image-wrapper {
+  flex-shrink: 0;
+  /* Use CSS variables from JSX to set aspect-ratio based size */
+  height: 50vh; /* Set a consistent max height */
+  width: calc(var(--w) / var(--h) * 50vh); /* Calculate width to maintain aspect ratio */
+  max-width: 70vw;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* The image itself */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
