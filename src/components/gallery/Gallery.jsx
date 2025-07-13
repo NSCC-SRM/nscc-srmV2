@@ -23,7 +23,8 @@ export default function Gallery() {
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      const totalScroll = carousel.current.scrollWidth - window.innerWidth;
+      // The '15vw' accounts for the padding on the carousel, ensuring the last image can scroll fully into view.
+      const totalScroll = carousel.current.scrollWidth - window.innerWidth + (window.innerWidth * 0.15);
 
       let tl = gsap.timeline({
         scrollTrigger: {
