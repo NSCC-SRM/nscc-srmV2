@@ -34,29 +34,23 @@ export default function Gallery() {
   }, []);
 
   useLayoutEffect(() => {
-    if (isMobile) return; // Skip GSAP animations on mobile
+    if (isMobile || !carousel.current || !component.current) return;
 
     let ctx = gsap.context(() => {
-      // The '15vw' accounts for the padding on the carousel, ensuring the last image can scroll fully into view.
-      const totalScroll = carousel.current.scrollWidth - window.innerWidth + (window.innerWidth * 0.15);
-
-      let tl = gsap.timeline({
+      // Simple horizontal scroll animation
+      gsap.to(carousel.current, {
+        x: () => -(carousel.current.scrollWidth - window.innerWidth),
+        ease: "none",
         scrollTrigger: {
           trigger: component.current,
           pin: true,
           scrub: 1,
-          end: () => `+=${totalScroll}`,
+          end: () => `+=${carousel.current.scrollWidth - window.innerWidth}`,
           invalidateOnRefresh: true,
         },
       });
-
-      // Animate the carousel into view from the right, then scroll it to the left
-      // The first animation (slide-in) is given a shorter duration (0.15) 
-      // relative to the second (scroll), making it happen over a shorter scroll distance.
-      tl.from(carousel.current, { x: '100vw', duration: 0.15 })
-        .to(carousel.current, { x: `-${totalScroll}px`, duration: 0.8 });
-
     }, component);
+
     return () => ctx.revert();
   }, [isMobile]);
 
