@@ -24,7 +24,7 @@ export default function Gallery() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 1024); // Updated to include tablets (768px - 1024px)
     };
 
     checkMobile();
@@ -47,22 +47,35 @@ export default function Gallery() {
       const paddingLeft = parseFloat(computedStyle.paddingLeft);
       const paddingRight = parseFloat(computedStyle.paddingRight);
 
-      // The total scrollable width is the full width of the carousel content, minus the viewport width, plus the right padding to ensure the last item is fully visible.
+      // Calculate the total scrollable width more accurately
       const totalScroll = carouselElement.scrollWidth - window.innerWidth + paddingRight;
+      
+      // Ensure we scroll through all images by adding extra distance
+      const extraScroll = Math.max(0, totalScroll * 0.3); // Add 30% extra to ensure last image is fully visible
+      
+      // Ensure minimum scroll distance to show all images
+      const minScrollDistance = Math.max(totalScroll + extraScroll, window.innerWidth * 0.5);
+      
+      // Debug logging to check carousel dimensions
+      console.log('Carousel scrollWidth:', carouselElement.scrollWidth);
+      console.log('Window width:', window.innerWidth);
+      console.log('Total scroll:', totalScroll);
+      console.log('Extra scroll:', extraScroll);
+      console.log('Number of images:', galleryImages.length);
 
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: component.current,
           pin: true,
           scrub: 1,
-          end: () => `+=${totalScroll}`,
+          end: () => `+=${minScrollDistance}`,
           invalidateOnRefresh: true,
         },
       });
 
       // Animate the carousel into view from the right, then scroll it to the left
       tl.to(carouselElement, { x: '0vw', duration: 0.2 })
-        .to(carouselElement, { x: `-${totalScroll}px`, duration: 0.8 });
+        .to(carouselElement, { x: `-${minScrollDistance}px`, duration: 0.8 });
 
     }, component);
     return () => ctx.revert();
@@ -74,7 +87,7 @@ export default function Gallery() {
         <div className="gallery-mobile-content">
           <h1 className="gallery-title mobile">Gallery</h1>
           <div className="gallery-mobile-grid">
-            {galleryImages.slice(0, 4).map((image) => (
+            {galleryImages.map((image) => (
               <div key={image.id} className="gallery-mobile-image-wrapper">
                 <img src={image.src} alt={`Gallery image ${image.id}`} className="gallery-mobile-image" />
               </div>

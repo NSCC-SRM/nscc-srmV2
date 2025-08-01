@@ -41,7 +41,9 @@
   width: max-content;
   align-items: center;
   padding: 0 15vw; /* Provides space on the sides */
-  gap: 10vw; /* Space between images */
+  gap: 6vw; /* Further reduced gap to ensure all images fit */
+  /* Ensure the carousel can accommodate all images */
+  min-width: 100%;
 }
 
 /* Wrapper for each image, dynamically sized */
@@ -50,7 +52,7 @@
   /* Use CSS variables from JSX to set aspect-ratio based size */
   height: 50vh; /* Set a consistent max height */
   width: calc(var(--w) / var(--h) * 50vh); /* Calculate width to maintain aspect ratio */
-  max-width: 70vw;
+  max-width: 50vw; /* Further reduced to ensure all images fit */
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
@@ -63,8 +65,8 @@
   object-fit: cover;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
+/* Mobile and Tablet Styles */
+@media (max-width: 1024px) {
   .gallery-container.mobile {
     height: auto;
     min-height: 100vh;
@@ -82,7 +84,7 @@
   }
 
   .gallery-title.mobile {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(2rem, 8vw, 4rem);
     font-weight: 400;
     color: #60a5fa;
     letter-spacing: 0.025em;
@@ -91,20 +93,27 @@
   }
 
   .gallery-mobile-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
     width: 100%;
-    max-width: 400px;
+    max-width: 1200px;
+    padding: 0 1rem;
   }
 
   .gallery-mobile-image-wrapper {
     width: 100%;
     aspect-ratio: 16/10;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     background-color: #a0a0a0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .gallery-mobile-image-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   }
 
   .gallery-mobile-image {
@@ -113,9 +122,22 @@
     object-fit: cover;
   }
 
-  /* Hide desktop elements on mobile */
+  /* Hide desktop elements on mobile/tablet */
   .gallery-background,
   .gallery-carousel {
     display: none;
+  }
+}
+
+/* Additional responsive adjustments for larger tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .gallery-mobile-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+  }
+
+  .gallery-title.mobile {
+    font-size: clamp(3rem, 6vw, 5rem);
   }
 }
