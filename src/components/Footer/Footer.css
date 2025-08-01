@@ -6,6 +6,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+.icon {
+  font-size: 40px; /* default size */
+}
 .container{
     background: 
     radial-gradient(circle at bottom right, rgba(128, 0, 128, 0.5), transparent 40%),
@@ -383,6 +386,68 @@ body {
     justify-content: center;
     margin-top: 450px;
   }
+  .right-column {
+    align-items: center;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1024px) and (min-height: 1366px) and (max-height: 1366px) {
+  body {
+    background: 
+      radial-gradient(circle at bottom right, rgba(128, 0, 128, 0.5), transparent 40%),
+      linear-gradient(to bottom left, #0d1f2d, #050551);
+  }
+
+  /* ✨ Instead of display: none, reduce size */
+  .big-text {
+    font-size: 300px; /* Or whatever looks smaller & clean */
+    line-height: 1.1;
+  }
+
+  .small-text p {
+    font-size: 50px;
+    margin: 2px 0;
+    margin-left: 30px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+  }
+
+  .main-menu {
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    gap: 0px;
+  }
+
+  .main-menu li {
+    font-size: 35px;
+  }
+
+  .contact,
+  .location {
+    text-align: center;
+    margin: 60px 0;
+    font-size: 25px;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 450px;
+  }
+
+  .icon {
+    font-size: 60px; /* or any size you want */
+  }
+
   .right-column {
     align-items: center;
   }

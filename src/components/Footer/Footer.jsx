@@ -49,15 +49,16 @@ const App = () => {
               <p>10am—6pm</p>
             </div>
             <div className="social-icons">
-  <a href="https://www.instagram.com/nscc_srm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: "#E4405F" }}>
-    <FaInstagram size={40} />
-  </a>
-  <a href="https://www.linkedin.com/company/newton-school-coding-club-srmist/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: "#0077B5" }}>
-    <FaLinkedin size={40} />
-  </a>
-  <a href="https://x.com/nsccsrm?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Twitter" style={{ color: "#000000" }}>
-  <FontAwesomeIcon icon={faXTwitter} size="1x" />
+<a href="https://www.instagram.com/nscc_srm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: "#E4405F" }}>
+  <FaInstagram className="icon" />
 </a>
+<a href="https://www.linkedin.com/company/newton-school-coding-club-srmist/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: "#0077B5" }}>
+  <FaLinkedin className="icon" />
+</a>
+<a href="https://x.com/nsccsrm?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Twitter" style={{ color: "#000000" }}>
+  <FontAwesomeIcon icon={faXTwitter} className="icon" />
+</a>
+
   
 </div>
           </div>
