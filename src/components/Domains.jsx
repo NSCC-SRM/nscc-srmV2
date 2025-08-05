@@ -38,10 +38,8 @@ const Domains = () => {
 
   return (
     <div
-      className="min-h-screen bg-[#061529]"
-      style={{
-        background: 'linear-gradient(to bottom, #0B1221 0%, #061529 100%)'
-      }}
+      className="min-h-screen"
+      
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-16 space-y-4">
@@ -101,3 +99,4 @@ const Domains = () => {
 };
 
 export default Domains;
+

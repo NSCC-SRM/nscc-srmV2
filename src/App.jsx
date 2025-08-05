@@ -7,12 +7,13 @@ import OurTeam from './components/OurTeam'
 import Gallery from './components/gallery/Gallery'
 import FollowUs from './components/FollowUs/FollowUs'
 import Footer from './components/Footer/Footer'
+import ShaderBackground from './components/ShaderBackground'
 import './App.css'
-
 
 export default function App() {
   return (
     <>
+      <ShaderBackground />
       <Hero />
       <AboutUs />
       <div id="domains">

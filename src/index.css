@@ -90,7 +90,7 @@
 
   .sponsi-container {
     width: 100%;
-    background-image: url('./assets/Background.png');
+    /* background-image: url('./assets/Background.png'); // Removed - using shader background */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -114,7 +114,7 @@
 
 @media (max-width:720px) {
   .sponsi-container{
-    background-image: url('./assets/Background_mobile.png');
+    /* background-image: url('./assets/Background_mobile.png'); // Removed - using shader background */
   }
   .Sponser-Title{
     font-size: 2.5rem;

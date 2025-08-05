@@ -2,8 +2,6 @@ import { useRef, useState, useEffect, useCallback, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-import BackgroundImage from "../assets/img/teams/bg.png";
-import TextureImage from "../assets/img/teams/texture.png";
 import teamData from "../assets/data/2025-26.js";
 import NSCCVector from "../assets/NSCC EVECTOR.png";
 
@@ -171,31 +169,28 @@ const OurTeam = ({ teamData: propTeamData }) => {
   );
 
   return (
-    <section
-      id="our-team-section"
-      ref={scrollRef}
-      className="relative"
-      style={{ height: `${totalSections * 100}vh` }}
-    >
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-center"
-          style={{ backgroundImage: `url(${BackgroundImage})` }}
-        />
-        <div
-          className="absolute inset-0 bg-repeat opacity-50"
-          style={{ backgroundImage: `url(${TextureImage})` }}
-        />
-        <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 pointer-events-none mix-blend-soft-light">
-          <div className="col-start-1 col-end-5 row-start-1 row-end-5 border-l border-r border-[#AAAAAA]"></div>
-          <div className="col-start-2 col-end-5 row-start-1 row-end-5 border-l border-[#AAAAAA]"></div>
-          <div className="col-start-3 col-end-5 row-start-1 row-end-5 border-l border-[#AAAAAA]"></div>
-          <div className="col-start-4 col-end-5 row-start-1 row-end-5 border-l border-[#AAAAAA]"></div>
-          <div className="col-start-1 col-end-5 row-start-1 row-end-5 border-t border-b border-[#AAAAAA]"></div>
-          <div className="col-start-1 col-end-5 row-start-2 row-end-5 border-t border-[#AAAAAA]"></div>
-          <div className="col-start-1 col-end-5 row-start-3 row-end-5 border-t border-[#AAAAAA]"></div>
-          <div className="col-start-1 col-end-5 row-start-4 row-end-5 border-t border-[#AAAAAA]"></div>
-        </div>
+    <div className="w-full h-dvh overflow-hidden relative" ref={containerRef}>
+      <div
+        className="absolute inset-0"
+        
+      />
+
+      <div
+        className="absolute inset-0 opacity-50"
+        
+      />
+
+      {/* Grid backgound verti/horizontal lines overlay */}
+      <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 pointer-events-none mix-blend-soft-light">
+        <div className="col-start-1 col-end-5 row-start-1 row-end-5 border-l border-r border-[#AAAAAA]"></div>
+        <div className="col-start-2 col-end-5 row-start-1 row-end-5 border-l border-[#AAAAAA]"></div>
+        <div className="col-start-3 col-end-5 row-start-1 row-end-5 border-l border-[#AAAAAA]"></div>
+        <div className="col-start-4 col-end-5 row-start-1 row-end-5 border-l border-[#AAAAAA]"></div>
+        <div className="col-start-1 col-end-5 row-start-1 row-end-5 border-t border-b border-[#AAAAAA]"></div>
+        <div className="col-start-1 col-end-5 row-start-2 row-end-5 border-t border-[#AAAAAA]"></div>
+        <div className="col-start-1 col-end-5 row-start-3 row-end-5 border-t border-[#AAAAAA]"></div>
+        <div className="col-start-1 col-end-5 row-start-4 row-end-5 border-t border-[#AAAAAA]"></div>
+      </div>
 
         <motion.div
           className="flex h-full relative z-10"
@@ -297,3 +292,4 @@ const OurTeam = ({ teamData: propTeamData }) => {
 };
 
 export default OurTeam;
+

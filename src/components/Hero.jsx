@@ -180,23 +180,16 @@ export default function Hero() {
   }, [isMenuOpen]);
 
   return (
-    <div
-      ref={heroRef}
-      className="relative min-h-screen bg-[#0a192f] overflow-hidden"
-      style={{ minHeight: "100vh" }}
-    >
-      <ShaderBackground />
-
-      {/* Grid Lines - Limited to hero section only */}
+    <div ref={heroRef} className="relative min-h-screen overflow-x-hidden">
+      {/* Grid Lines - 4x3 grid matching screenshot */}
       <div className="absolute inset-0 z-0 hidden lg:block">
-        {/* Vertical Lines */}
+        {/* Vertical Lines - 4 columns (3 dividing lines) */}
         <div className="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
         <div className="absolute top-0 left-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
         <div className="absolute top-0 left-3/4 w-[1px] h-full bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
-        {/* Horizontal Lines */}
-        <div className="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-        <div className="absolute top-3/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        {/* Horizontal Lines - 3 rows (2 dividing lines) */}
+        <div className="absolute top-1/3 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        <div className="absolute top-2/3 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       </div>
 
       {/* Navigation */}
@@ -266,8 +259,8 @@ export default function Hero() {
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-[#0a192f]/100  transition-opacity duration-500 ${
-            isMenuOpen ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0 bg-[#0a192f]/95 transition-opacity duration-500 ${
+            isMenuOpen ? "opacity-80" : "opacity-0"
           }`}
         ></div>
 
