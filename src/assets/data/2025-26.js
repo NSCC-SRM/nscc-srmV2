@@ -350,6 +350,16 @@ const creatives = [
   {
     category: "Creatives",
     members: [
+        {
+        name: "Abhishek Ahmed",
+        designation: "Creatives Director",
+        bio: "An Engineer by degree, an Artist by heart.",
+        social: [
+          { name: "github", url: "https://github.com/Abhisheksk2005" },
+          { name: "linkedin", url: "https://www.linkedin.com/in/abhishekkinjawadekar/" },
+          // { name: "other_link", url: "https://dribbble.com/Burly_Ben" },
+        ],
+      },
       {
         name: "Shreya Nair",
         designation: "Associate Director",
